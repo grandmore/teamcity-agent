@@ -26,7 +26,8 @@ RUN mkdir -p /data
 EXPOSE 9090
 
 VOLUME /var/lib/docker
-VOLUME /data
+#VOLUME /data
+VOLUME ["/home-teamcity-agent"]
 
 # Install ruby and node.js build repositories
 RUN apt-add-repository ppa:chris-lea/node.js
@@ -36,13 +37,6 @@ RUN apt-get update
 # Install node.js environment and eatmydata
 RUN apt-get install -y nodejs git eatmydata
 RUN npm install -g bower grunt-cli
-
-# install Node & npm
-#RUN eatmydata -- apt-add-repository ppa:chris-lea/node.js
-#RUN eatmydata -- apt-get update
-#RUN eatmydata -- apt-get install -yq nodejs
-#RUN eatmydata -- npm install -g grunt-cli
-
 
 # Install ruby environment
 RUN apt-get install -y ruby2.1 ruby2.1-dev ruby ruby-switch build-essential
