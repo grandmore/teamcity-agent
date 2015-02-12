@@ -68,6 +68,9 @@ RUN ln -s /usr/local/bin/phing-latest.phar /usr/local/phing-symbolic/bin/ant
 # install Apache Ant
 RUN eatmydata -- apt-get install -yq ant
 
+#add foreach etc for apaceh ant
+RUN wget http://mirrors.ibiblio.org/pub/mirrors/maven2/ant-contrib/ant-contrib/1.0b3/ant-contrib-1.0b3.jar
+
 
 #install mercurial 3.2.x
 RUN eatmydata -- apt-get install -yq python-dev python3-dev python3-setuptools python-docutils python3-docutils
